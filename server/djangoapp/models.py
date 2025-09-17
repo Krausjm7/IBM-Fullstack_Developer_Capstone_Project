@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 # CarMake model to store information about a car's make
 class CarMake(models.Model):
@@ -13,6 +13,7 @@ class CarMake(models.Model):
     # It will be used in the Django admin site and elsewhere.
     def __str__(self):
         return self.name
+
 
 # CarModel model to store information about a specific car model
 class CarModel(models.Model):
