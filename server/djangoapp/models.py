@@ -55,3 +55,4 @@ class CarModel(models.Model):
     # for a more descriptive representation.
     def __str__(self):
         return f"{self.car_make.name} - {self.name}"
+    
