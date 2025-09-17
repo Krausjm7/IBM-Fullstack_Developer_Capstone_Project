@@ -9,7 +9,8 @@ class CarMake(models.Model):
     # A brief description of the car make
     description = models.TextField()
 
-    # The __str__ method provides a human-readable representation of the object.
+    # The __str__ method provides a human-readable 
+    # representation of the object.
     # It will be used in the Django admin site and elsewhere.
     def __str__(self):
         return self.name
@@ -20,14 +21,14 @@ class CarModel(models.Model):
     # Many-to-one relationship to the CarMake model.
     # A single CarMake can have multiple CarModels.
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
-    
+
     # Dealer ID, which will be used to link this model to a dealership
     # in the Cloudant database.
     dealer_id = models.IntegerField()
-    
+
     # The name of the car model (e.g., Mustang, Civic)
     name = models.CharField(max_length=100)
-    
+
     # A list of tuples for the car type choices.
     CAR_TYPES = [
         ('SEDAN', 'Sedan'),
@@ -41,7 +42,7 @@ class CarModel(models.Model):
     ]
     # The car's type, using the choices defined above.
     type = models.CharField(max_length=15, choices=CAR_TYPES)
-    
+
     # The year the car was made, with validation to ensure the value
     # is within the specified range.
     year = models.IntegerField(
@@ -55,4 +56,3 @@ class CarModel(models.Model):
     # for a more descriptive representation.
     def __str__(self):
         return f"{self.car_make.name} - {self.name}"
-    

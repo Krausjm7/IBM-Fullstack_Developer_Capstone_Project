@@ -6,24 +6,26 @@ load_dotenv()
 
 
 # Get the backend URL from the environment variables
-backend_url = os.getenv(
-    "backend_url", "http://localhost:3030")
+backend_url = os.getenv("backend_url", "http://localhost:3030")
 
 sentiment_analyzer_url = os.getenv(
     'sentiment_analyzer_url',
-    default="http://localhost:5050/")
+    default="http://localhost:5050/"
+)
 
 
 def get_request(endpoint, **kwargs):
     """
-    Sends a GET request to the specified backend endpoint with optional parameters.
-    
+    Sends a GET request to the specified backend endpoint 
+    with optional parameters.
+
     Args:
         endpoint (str): The API endpoint to call.
         **kwargs: Keyword arguments representing URL parameters.
-    
+
     Returns:
-        dict or None: The JSON response from the API, or None if an error occurs.
+        dict or None: The JSON response from the API, 
+        or None if an error occurs.
     """
     params = ""
     if kwargs:
@@ -31,7 +33,7 @@ def get_request(endpoint, **kwargs):
             params = params + key + "=" + value + "&"
 
     request_url = backend_url + endpoint + "?" + params
-    
+
     print("GET from {} ".format(request_url))
     try:
         # Call get method of requests library with URL and parameters
@@ -47,10 +49,10 @@ def get_request(endpoint, **kwargs):
 def analyze_review_sentiments(text):
     """
     Analyzes the sentiment of a given text using a microservice.
-    
+
     Args:
         text (str): The text to analyze.
-    
+
     Returns:
         dict or None: The JSON response from the sentiment analysis service.
     """
