@@ -16,7 +16,7 @@ sentiment_analyzer_url = os.getenv(
 
 def get_request(endpoint, **kwargs):
     """
-    Sends a GET request to the specified backend endpoint 
+    Sends a GET request to the specified backend endpoint
     with optional parameters.
 
     Args:
@@ -24,7 +24,7 @@ def get_request(endpoint, **kwargs):
         **kwargs: Keyword arguments representing URL parameters.
 
     Returns:
-        dict or None: The JSON response from the API, 
+        dict or None: The JSON response from the API,
         or None if an error occurs.
     """
     params = ""

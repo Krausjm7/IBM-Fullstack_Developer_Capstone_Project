@@ -9,7 +9,7 @@ class CarMake(models.Model):
     # A brief description of the car make
     description = models.TextField()
 
-    # The __str__ method provides a human-readable 
+    # The __str__ method provides a human-readable
     # representation of the object.
     # It will be used in the Django admin site and elsewhere.
     def __str__(self):
